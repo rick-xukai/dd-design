@@ -9,4 +9,6 @@ export const Colors = {
   navigationTag2: '#9747FF',
   navigationTagText2: '#000000A3',
   homeTabActive: '#16C6EA',
+  hoverOrange: '#FF7D00',
+  textGray: '#FFFFFF7A',
 };

@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 import {
   Container,
@@ -37,13 +37,14 @@ const Navigation = () => {
     <Container className="sticky top-0 left-0 h-screen px-[16px] py-[40px] overflow-auto">
       <div>
         <div className="px-[16px]">
-          <Image
+          <img
             className="lg:w-[128px] w-[48px] h-[48px]"
             src={
-              windoWidthwSize >= BreakPoint.lg ? Images.NameLogo : Images.Logo
+              windoWidthwSize >= BreakPoint.lg
+                ? Images.NameLogo.src
+                : Images.Logo.src
             }
             alt=""
-            priority
           />
         </div>
         {NavigationOptions.map((item, index) => (

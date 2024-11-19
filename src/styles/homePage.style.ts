@@ -24,6 +24,9 @@ const IconContainer = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  &:hover {
+    background: ${Colors.hoverOrange};
+  }
 `;
 
 const FunctionOptionContainer = styled.div<{ $isHigh: boolean }>`
@@ -38,4 +41,27 @@ const FunctionOptionContainer = styled.div<{ $isHigh: boolean }>`
   cursor: pointer;
 `;
 
-export { ButtonStyled, IconContainer, FunctionOptionContainer };
+const TabsContainer = styled.div`
+  .ant-tabs {
+    .ant-tabs-tab-active {
+      .ant-tabs-tab-btn {
+        color: ${Colors.white};
+      }
+    }
+    .ant-tabs-tab-btn {
+      color: ${Colors.navigationLabel};
+      font-size: 16px;
+    }
+    .ant-tabs-nav {
+      margin: 0;
+    }
+    .ant-tabs-ink-bar {
+      width: 18px !important;
+      bottom: 8px;
+      background: ${Colors.white};
+      border: none;
+    }
+  }
+`;
+
+export { ButtonStyled, IconContainer, FunctionOptionContainer, TabsContainer };

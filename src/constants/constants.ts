@@ -1,4 +1,5 @@
 import { Images } from '@/theme/images';
+import { HomePageTabsKey } from '@/types/global';
 
 export const NavigationOptions = [
   {
@@ -30,12 +31,12 @@ export const NavigationOptions = [
     label: 'AI 创作',
     options: [
       {
-        icon: Images.MenuLiabilitiesIcon,
+        icon: Images.MenuAssistantsIcon,
         name: '我的资产',
         link: '/liabilities',
       },
       {
-        icon: Images.MenuAssistantsIcon,
+        icon: Images.MenuLiabilitiesIcon,
         name: '智能助理',
         link: '/assistants',
       },
@@ -100,4 +101,110 @@ export const HomeFunctionOptionLow = [
   'Ai消除',
   'Ai消除',
   'Ai消除',
+];
+export const MyAssetsTestData = [
+  {
+    id: 1,
+    image: Images.TestImages1,
+  },
+  {
+    id: 2,
+    image: Images.TestImages2,
+  },
+  {
+    id: 3,
+    image: Images.TestImages3,
+  },
+  {
+    id: 4,
+    image: Images.TestImages2,
+  },
+  {
+    id: 5,
+    image: Images.TestImages1,
+  },
+  {
+    id: 6,
+    image: Images.TestImages3,
+  },
+];
+export const TutorialTestData = [
+  {
+    id: 1,
+    title: '认识点点',
+    description: '阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯蒂芬阿三阿斯蒂芬阿斯弗',
+    duration: '6Min',
+    image: Images.TestImages4,
+  },
+  {
+    id: 2,
+    title: '认识点点',
+    description: '阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯蒂芬阿三阿斯蒂芬阿斯弗',
+    duration: '6Min',
+    image: Images.TestImages5,
+  },
+  {
+    id: 3,
+    title: '认识点点',
+    description: '阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯蒂芬阿三阿斯蒂芬阿斯弗',
+    duration: '6Min',
+    image: Images.TestImages4,
+  },
+  {
+    id: 4,
+    title: '认识点点',
+    description: '阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯蒂芬阿三阿斯蒂芬阿斯弗',
+    duration: '6Min',
+    image: Images.TestImages5,
+  },
+  {
+    id: 5,
+    title: '认识点点',
+    description: '阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯蒂芬阿三阿斯蒂芬阿斯弗',
+    duration: '6Min',
+    image: Images.TestImages4,
+  },
+  {
+    id: 6,
+    title: '认识点点',
+    description: '阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯蒂芬阿三阿斯蒂芬阿斯弗',
+    duration: '6Min',
+    image: Images.TestImages5,
+  },
+  {
+    id: 7,
+    title: '认识点点',
+    description: '阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯蒂芬阿三阿斯蒂芬阿斯弗',
+    duration: '6Min',
+    image: Images.TestImages4,
+  },
+  {
+    id: 8,
+    title: '认识点点',
+    description: '阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯蒂芬阿三阿斯蒂芬阿斯弗',
+    duration: '6Min',
+    image: Images.TestImages5,
+  },
+];
+export const HomePageTabs = [
+  {
+    key: HomePageTabsKey.recommended,
+    label: '推荐',
+  },
+  {
+    key: HomePageTabsKey.hot,
+    label: '热门',
+  },
+  {
+    key: HomePageTabsKey.daily,
+    label: '每日精选',
+  },
+  {
+    key: HomePageTabsKey.favorite,
+    label: '喜欢',
+  },
+  {
+    key: HomePageTabsKey.collection,
+    label: '收藏',
+  },
 ];

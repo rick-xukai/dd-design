@@ -17,6 +17,14 @@ import LogoDark from '@/assets/logo-dark.png';
 import SearchIcon from '@/assets/search.svg';
 import GiftIcon from '@/assets/gift.svg';
 import MessageIcon from '@/assets/message.svg';
+import RightArrowIcon from '@/assets/right-arrow.svg';
+import BookIcon from '@/assets/book-icon.svg';
+// Test Images
+import TestImages1 from '@/assets/testImages/testImages1.png';
+import TestImages2 from '@/assets/testImages/testImages2.png';
+import TestImages3 from '@/assets/testImages/testImages3.png'
+import TestImages4 from '@/assets/testImages/testImages4.png'
+import TestImages5 from '@/assets/testImages/testImages5.png'
 
 export const Images = {
   Logo,
@@ -38,4 +46,11 @@ export const Images = {
   SearchIcon,
   GiftIcon,
   MessageIcon,
+  RightArrowIcon,
+  TestImages1,
+  TestImages2,
+  TestImages3,
+  TestImages4,
+  TestImages5,
+  BookIcon,
 };
