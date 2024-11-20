@@ -1,5 +1,5 @@
-import Logo from '@/assets/logo.png';
-import NameLogo from '@/assets/name-logo.png';
+import Logo from '@/assets/logo.svg';
+import NameLogo from '@/assets/name-logo.svg';
 import MenuHomeIcon from '@/assets/menu-home.svg';
 import MenuCommunalIcon from '@/assets/menu-communal.svg';
 import MenuEventIcon from '@/assets/menu-event.svg';
@@ -19,12 +19,14 @@ import GiftIcon from '@/assets/gift.svg';
 import MessageIcon from '@/assets/message.svg';
 import RightArrowIcon from '@/assets/right-arrow.svg';
 import BookIcon from '@/assets/book-icon.svg';
+import FloatButtonIcon from '@/assets/float-button-icon.svg';
 // Test Images
 import TestImages1 from '@/assets/testImages/testImages1.png';
 import TestImages2 from '@/assets/testImages/testImages2.png';
 import TestImages3 from '@/assets/testImages/testImages3.png'
 import TestImages4 from '@/assets/testImages/testImages4.png'
 import TestImages5 from '@/assets/testImages/testImages5.png'
+import TestImages6 from '@/assets/testImages/testImages6.png';
 
 export const Images = {
   Logo,
@@ -53,4 +55,6 @@ export const Images = {
   TestImages4,
   TestImages5,
   BookIcon,
+  FloatButtonIcon,
+  TestImages6,
 };

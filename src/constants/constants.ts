@@ -208,3 +208,7 @@ export const HomePageTabs = [
     label: '收藏',
   },
 ];
+export const MainContainerWidth = {
+  default: '240px',
+  lg: '85px',
+};

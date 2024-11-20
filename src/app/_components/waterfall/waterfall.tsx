@@ -4,9 +4,16 @@ import Masonry from 'react-masonry-css';
 // import _ from 'lodash';
 
 const MasonryGrid = () => {
+  //   const containerRef = useRef<any>(null);
+
+  //   const [positions, setPositions] = useState<any>([]);
   const [images, setImages] = useState<any>([]);
-//   const [showMasonryInfo, setShowMasonryInfo] = useState<boolean>(false);
-//   const [currentShowIndex, setCurrentShowIndex] = useState<number | null>(null);
+  //   const [showMasonryInfo, setShowMasonryInfo] = useState<boolean>(false);
+  //   const [currentShowIndex, setCurrentShowIndex] = useState<number | null>(null);
+  //   const columnCount = 4;
+  //   const gap = 8;
+  const minColumnWidth = 200;
+  //   const [columnWidth, setColumnWidth] = useState(minColumnWidth);
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -370,7 +377,94 @@ const MasonryGrid = () => {
     576: 1,
   };
 
+  //   useEffect(() => {
+  //     const calculateLayout = () => {
+  //       if (!containerRef.current) return;
+
+  //       const containerWidth = containerRef.current.offsetWidth; // 获取容器宽度
+  //       const columnCount = Math.floor(containerWidth / (minColumnWidth + gap)); // 动态计算列数
+  //       const adjustedColumnWidth =
+  //         (containerWidth - (columnCount - 1) * gap) / columnCount; // 动态调整列宽
+  //       setColumnWidth(adjustedColumnWidth);
+
+  //       const columnHeights = Array(columnCount).fill(0); // 每列累积高度
+  //       const newPositions: any = [];
+
+  //       images.forEach((image: any) => {
+  //         const shortestColumnIndex = columnHeights.indexOf(
+  //           Math.min(...columnHeights)
+  //         ); // 找到最短列
+  //         const x = shortestColumnIndex * (adjustedColumnWidth + gap); // 计算横坐标
+  //         const y = columnHeights[shortestColumnIndex]; // 计算纵坐标
+
+  //         newPositions.push({
+  //           x,
+  //           y,
+  //           width: adjustedColumnWidth,
+  //           height: (image.height / image.width) * adjustedColumnWidth, // 保持比例
+  //         });
+
+  //         // 更新列高度
+  //         columnHeights[shortestColumnIndex] +=
+  //           (image.height / image.width) * adjustedColumnWidth + gap;
+  //       });
+
+  //       setPositions(newPositions);
+  //     };
+
+  //     calculateLayout();
+
+  //     // 监听窗口尺寸变化
+  //     window.addEventListener('resize', calculateLayout);
+  //     return () => window.removeEventListener('resize', calculateLayout);
+  //   }, [images, columnCount, gap]);
+
   return (
+    // <div ref={containerRef} style={{ position: 'relative', width: '100%' }}>
+    //   {positions.map((pos: any, index: number) => (
+    //     <div
+    //       key={index}
+    //       style={{
+    //         position: 'absolute',
+    //         top: pos.y,
+    //         left: pos.x,
+    //         width: pos.width,
+    //         height: pos.height,
+    //         overflow: 'hidden',
+    //         borderRadius: 8, // 可选
+    //         background: '#f0f0f0', // 可选
+    //       }}
+    //     >
+    //       <img
+    //         src={images[index].imageUrl}
+    //         alt=""
+    //         style={{
+    //           width: '100%',
+    //           height: '100%',
+    //           objectFit: 'cover',
+    //         }}
+    //       />
+    //     </div>
+    //   ))}
+    // </div>
+    // <div ref={containerRef} style={{ position: 'relative', width: '100%' }}>
+    //   {images.map((item: any, index: number) => (
+    //     <div
+    //       key={index}
+    //       style={{
+    //         position: 'absolute',
+    //         top: `${positions[index]?.top || 0}px`,
+    //         left: `${positions[index]?.left || 0}px`,
+    //         width: `${positions[index]?.width || 0}px`,
+    //         height: `${item.height}px`,
+    //         backgroundImage: `url(${item.imageUrl})`,
+    //         backgroundSize: 'cover',
+    //         backgroundPosition: 'center',
+    //         borderRadius: '8px',
+    //       }}
+    //     />
+    //   ))}
+    // </div>
     <Masonry
       breakpointCols={breakpointColumnsObj}
       className="flex w-auto gap-[8px]"
@@ -380,14 +474,14 @@ const MasonryGrid = () => {
         <div
           key={img.id}
           className="overflow-hidden rounded-lg mt-[8px] cursor-pointer"
-        //   onMouseEnter={() => {
-        //     setShowMasonryInfo(true);
-        //     setCurrentShowIndex(index);
-        //   }}
-        //   onMouseLeave={() => {
-        //     setShowMasonryInfo(false);
-        //     setCurrentShowIndex(null);
-        //   }}
+          //   onMouseEnter={() => {
+          //     setShowMasonryInfo(true);
+          //     setCurrentShowIndex(index);
+          //   }}
+          //   onMouseLeave={() => {
+          //     setShowMasonryInfo(false);
+          //     setCurrentShowIndex(null);
+          //   }}
         >
           <img
             src={img.imageUrl}

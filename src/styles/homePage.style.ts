@@ -34,10 +34,10 @@ const FunctionOptionContainer = styled.div<{ $isHigh: boolean }>`
   align-items: center;
   justify-content: center;
   height: ${(props) => (props.$isHigh ? '168px' : '52px')};
-  background: ${Colors.navigationHover};
+  background: var(--theme-container-bg);
   border-radius: 16px;
   font-size: ${(props) => (props.$isHigh ? '24px' : '14px')};
-  color: ${Colors.white};
+  color: var(--theme-primary);
   cursor: pointer;
 `;
 
@@ -45,11 +45,11 @@ const TabsContainer = styled.div`
   .ant-tabs {
     .ant-tabs-tab-active {
       .ant-tabs-tab-btn {
-        color: ${Colors.white};
+        color: var(--theme-primary);
       }
     }
     .ant-tabs-tab-btn {
-      color: ${Colors.navigationLabel};
+      color: var(--theme-container-color);
       font-size: 16px;
     }
     .ant-tabs-nav {
@@ -58,7 +58,7 @@ const TabsContainer = styled.div`
     .ant-tabs-ink-bar {
       width: 18px !important;
       bottom: 8px;
-      background: ${Colors.white};
+      background: var(--theme-primary);
       border: none;
     }
   }

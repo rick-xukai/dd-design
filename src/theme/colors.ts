@@ -11,4 +11,5 @@ export const Colors = {
   homeTabActive: '#16C6EA',
   hoverOrange: '#FF7D00',
   textGray: '#FFFFFF7A',
+  lightGray: '#00000014',
 };

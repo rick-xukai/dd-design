@@ -15,3 +15,8 @@ export enum HomePageTabsKey {
   favorite = '4',
   collection = '5',
 }
+
+export enum ThemeType {
+  light = 'light',
+  dark = 'dark',
+}

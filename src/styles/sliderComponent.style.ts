@@ -1,18 +1,17 @@
 import styled from 'styled-components';
 
-import { Colors } from '@/theme/colors';
 import { SliderType } from '@/types/global';
 
 const CheckMoreButton = styled.div`
   width: 80px;
   height: 35px;
-  background: ${Colors.navigationHover};
+  background: var(--theme-container-bg);
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 16px;
   font-size: 14px;
-  color: ${Colors.navigationText};
+  color: var(--theme-home-label-color);
   padding-left: 16px;
   padding-right: 16px;
   cursor: pointer;
