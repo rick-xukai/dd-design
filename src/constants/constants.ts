@@ -89,18 +89,56 @@ export const HomeHeaderTab = [
   },
 ];
 export const HomeFunctionOptionHigh = [
-  '图像生成',
-  '音乐生成',
-  '视频生成',
-  '数字人',
+  {
+    name: '图像生成',
+    label: '让创意触手可及',
+    icon: Images.MenuImagesIcon,
+    banner: Images.TestImages7,
+  },
+  {
+    name: '音乐生成',
+    label: '让创意触手可及',
+    icon: Images.MenuImagesIcon,
+    banner: Images.TestImages7,
+  },
+  {
+    name: '视频生成',
+    label: '让创意触手可及',
+    banner: Images.TestImages7,
+    icon: Images.MenuImagesIcon,
+  },
+  {
+    name: '数字人',
+    label: '让创意触手可及',
+    banner: Images.TestImages7,
+    icon: Images.MenuImagesIcon,
+  },
 ];
 export const HomeFunctionOptionLow = [
-  '智能抠图',
-  '模特换装',
-  'Ai商品图',
-  'Ai消除',
-  'Ai消除',
-  'Ai消除',
+  {
+    name: '智能抠图',
+    icon: Images.ShadowIcon,
+  },
+  {
+    name: '智能抠图',
+    icon: Images.ShadowIcon,
+  },
+  {
+    name: '智能抠图',
+    icon: Images.ShadowIcon,
+  },
+  {
+    name: '智能抠图',
+    icon: Images.ShadowIcon,
+  },
+  {
+    name: '智能抠图',
+    icon: Images.ShadowIcon,
+  },
+  {
+    name: '智能抠图',
+    icon: Images.ShadowIcon,
+  },
 ];
 export const MyAssetsTestData = [
   {

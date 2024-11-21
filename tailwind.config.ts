@@ -16,6 +16,7 @@ export default {
         themePrimary: 'var(--theme-primary)',
         themeNavigationColor: 'var(--theme-navigation-color)',
         themeHomeLabelColor: 'var(--theme-home-label-color)',
+        themeHomeFunctionColor: 'var(--theme-home-function-color)',
         themeContainerBg: 'var(--theme-container-bg)',
         themeContainerColor: 'var(--theme-container-color)',
         themeContainerColor2: 'var(--theme-container-color2)',
