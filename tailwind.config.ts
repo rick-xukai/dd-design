@@ -1,6 +1,6 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
-import { Colors } from "./src/theme/colors";
+import { Colors } from './src/theme/colors';
 
 export default {
   content: [
@@ -13,6 +13,12 @@ export default {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        themePrimary: 'var(--theme-primary)',
+        themeNavigationColor: 'var(--theme-navigation-color)',
+        themeHomeLabelColor: 'var(--theme-home-label-color)',
+        themeContainerBg: 'var(--theme-container-bg)',
+        themeContainerColor: 'var(--theme-container-color)',
+        themeContainerColor2: 'var(--theme-container-color2)',
         ...Colors,
       },
       screens: {

@@ -5,6 +5,45 @@
 :root {
   --background: #000000;
   --foreground: #171717;
+  --theme-primary: #ffffff;
+  --theme-navigation-color: #ffffffa3;
+  --theme-home-label-color: #ffffffa3;
+  --theme-container-bg: #ffffff14;
+  --theme-container-color: #ffffff52;
+  --theme-container-color2: #ffffff7a;
+}
+
+.light {
+  --background: #ffffff;
+  --theme-primary: #000000;
+  --theme-home-label-color: #000000;
+  --theme-navigation-color: #000000;
+  --theme-container-bg: #00000014;
+  --theme-container-color: #00000052;
+  --theme-container-color2: #0000007a;
+}
+
+.ant-float-btn,
+.ant-float-btn-body {
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.ant-float-btn-content {
+  padding: 0 !important;
+}
+
+body {
+  background: var(--background);
+  transition: background-color 0.3s ease;
+}
+
+svg {
+  stroke: currentColor;
+}
+
+.ant-float-btn-icon {
+  width: auto !important;
 }
 
 @media (prefers-color-scheme: dark) {

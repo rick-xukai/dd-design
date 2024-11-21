@@ -24,6 +24,9 @@ const IconContainer = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  &:hover {
+    background: ${Colors.hoverOrange};
+  }
 `;
 
 const FunctionOptionContainer = styled.div<{ $isHigh: boolean }>`
@@ -31,11 +34,34 @@ const FunctionOptionContainer = styled.div<{ $isHigh: boolean }>`
   align-items: center;
   justify-content: center;
   height: ${(props) => (props.$isHigh ? '168px' : '52px')};
-  background: ${Colors.navigationHover};
+  background: var(--theme-container-bg);
   border-radius: 16px;
   font-size: ${(props) => (props.$isHigh ? '24px' : '14px')};
-  color: ${Colors.white};
+  color: var(--theme-primary);
   cursor: pointer;
 `;
 
-export { ButtonStyled, IconContainer, FunctionOptionContainer };
+const TabsContainer = styled.div`
+  .ant-tabs {
+    .ant-tabs-tab-active {
+      .ant-tabs-tab-btn {
+        color: var(--theme-primary);
+      }
+    }
+    .ant-tabs-tab-btn {
+      color: var(--theme-container-color);
+      font-size: 16px;
+    }
+    .ant-tabs-nav {
+      margin: 0;
+    }
+    .ant-tabs-ink-bar {
+      width: 18px !important;
+      bottom: 8px;
+      background: var(--theme-primary);
+      border: none;
+    }
+  }
+`;
+
+export { ButtonStyled, IconContainer, FunctionOptionContainer, TabsContainer };

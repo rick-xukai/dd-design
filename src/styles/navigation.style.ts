@@ -1,20 +1,30 @@
 import styled from 'styled-components';
 
-import { Colors } from '@/theme/colors';
+import { MainContainerWidth } from '@/constants/constants';
 
 const Container = styled.div`
-  width: 240px;
+  width: ${MainContainerWidth.default};
   &::-webkit-scrollbar {
     display: none;
   }
-  @media(max-width: 1024px) {
-    width: 140px;
+  .svg-logo {
+    svg {
+      stroke: initial;
+      fill: currentColor;
+    }
+  }
+  .ant-avatar {
+    width: 50px;
+    height: 50px;
+  }
+  @media (max-width: 1024px) {
+    width: ${MainContainerWidth.lg};
   }
 `;
 
 const OptionContainer = styled.div`
   &:hover {
-    background: ${Colors.navigationHover};
+    background: var(--theme-container-bg);
     border-radius: 16px;
   }
 `;
