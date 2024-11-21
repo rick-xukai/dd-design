@@ -9,6 +9,7 @@ const Container = styled.div`
   }
   .svg-logo {
     svg {
+      width: 100%;
       stroke: initial;
       fill: currentColor;
     }

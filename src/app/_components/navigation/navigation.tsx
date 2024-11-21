@@ -1,8 +1,7 @@
 'use client';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useRouter } from 'next/navigation';
 import { Avatar } from 'antd';
-import { ReactSVG } from 'react-svg';
 import _ from 'lodash';
 import { useWindowSize } from 'react-use';
 
@@ -14,28 +13,25 @@ import {
 import { BreakPoint } from '@/types/global';
 import { Images } from '@/theme/images';
 import { NavigationOptions } from '@/constants/constants';
-import { handleSetTheme } from '@/utils/func';
+import SVGRender from '@/app/_components/svgRender';
 
 const Navigation = () => {
   const router = useRouter();
   const { width } = useWindowSize();
 
-  useEffect(() => {
-    handleSetTheme(true);
-  }, []);
-
   return (
     <Container className="sticky top-0 left-0 h-screen px-[16px] py-[40px] overflow-auto">
       <div className="flex flex-col h-full">
-        <div className="lg:px-[16px] text-themePrimary flex items-center">
-          <ReactSVG
-            className="lg:w-[128px] w-[48px] h-[48px] svg-logo"
-            src={width >= BreakPoint.lg ? Images.NameLogo.src : Images.Logo.src}
+        <div className="lg:px-[16px] text-themePrimary flex items-center lg:justify-normal justify-center">
+          <SVGRender
+            src={width > BreakPoint.lg ? Images.NameLogo.src : Images.Logo.src}
+            classProps="lg:w-[128px] w-[48px] h-[48px] svg-logo"
           />
         </div>
+
         {NavigationOptions.map((item, index) => (
           <div key={index} className="pt-[40px]">
-            {item.label && width >= BreakPoint.lg && (
+            {item.label && width > BreakPoint.lg && (
               <div className="text-themeContainerColor text-xs mb-2 px-[16px]">
                 {item.label}
               </div>
@@ -46,12 +42,13 @@ const Navigation = () => {
                 className="flex h-[48px] items-center mb-2 cursor-pointer px-[16px]"
                 onClick={() => router.push(option.link)}
               >
-                <div className="text-themeNavigationColor">
-                  <ReactSVG src={option.icon.src} />
-                </div>
-                {width >= BreakPoint.lg && (
+                <SVGRender
+                  src={option.icon.src}
+                  classProps="text-themePrimary"
+                />
+                {width > BreakPoint.lg && (
                   <>
-                    <div className="text-themeNavigationColor text-base ml-4">
+                    <div className="text-themePrimary text-base ml-4">
                       {option.name}
                     </div>
                     {option.name === '我的资产' && (
@@ -72,7 +69,7 @@ const Navigation = () => {
         ))}
         <div className="mt-auto lg:pl-[16px] flex items-center">
           <Avatar icon={<img src={Images.TestImages6.src} />} />
-          {width >= BreakPoint.lg && (
+          {width > BreakPoint.lg && (
             <span className="ml-[10px] text-base text-themePrimary">
               User name
             </span>

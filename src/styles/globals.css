@@ -8,6 +8,7 @@
   --theme-primary: #ffffff;
   --theme-navigation-color: #ffffffa3;
   --theme-home-label-color: #ffffffa3;
+  --theme-home-function-color: #ffffff52;
   --theme-container-bg: #ffffff14;
   --theme-container-color: #ffffff52;
   --theme-container-color2: #ffffff7a;
@@ -18,6 +19,7 @@
   --theme-primary: #000000;
   --theme-home-label-color: #000000;
   --theme-navigation-color: #000000;
+  --theme-home-function-color: #000000;
   --theme-container-bg: #00000014;
   --theme-container-color: #00000052;
   --theme-container-color2: #0000007a;
@@ -44,6 +46,12 @@ svg {
 
 .ant-float-btn-icon {
   width: auto !important;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 16px !important;
+  color: #fff;
 }
 
 @media (prefers-color-scheme: dark) {

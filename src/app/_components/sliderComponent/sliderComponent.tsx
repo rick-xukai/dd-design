@@ -1,6 +1,5 @@
 import React from 'react';
 import { Row, Col } from 'antd';
-import { ReactSVG } from 'react-svg';
 
 import { Images } from '@/theme/images';
 import {
@@ -9,6 +8,7 @@ import {
   SliderContainer,
 } from '@/styles/sliderComponent.style';
 import { SliderType } from '@/types/global';
+import SVGRender from '@/app/_components/svgRender';
 
 const SliderComponent = ({
   icon,
@@ -28,9 +28,7 @@ const SliderComponent = ({
       <Row>
         <Col span={12}>
           <div className="flex items-center h-[100%]">
-            <div className="text-themeNavigationColor">
-              <ReactSVG src={icon} />
-            </div>
+            <SVGRender src={icon} classProps="text-themeNavigationColor" />
             <div className="ml-[5px] text-themeHomeLabelColor text-base">
               {title}
             </div>
@@ -40,9 +38,10 @@ const SliderComponent = ({
           <div className="flex justify-end">
             <CheckMoreButton onClick={moreFunction}>
               <div>更多</div>
-              <div className="text-themeHomeLabelColor">
-                <ReactSVG src={Images.RightArrowIcon.src} />
-              </div>
+              <SVGRender
+                src={Images.RightArrowIcon.src}
+                classProps="text-themeHomeLabelColor"
+              />
             </CheckMoreButton>
           </div>
         </Col>

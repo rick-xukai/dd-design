@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Input, Col, Row, Tabs } from 'antd';
 import { StyleProvider } from '@ant-design/cssinjs';
 import Image from 'next/image';
@@ -18,16 +18,13 @@ import {
 } from '@/constants/constants';
 import SliderComponent from '@/app/_components/sliderComponent';
 import Waterfall from '@/app/_components/waterfall';
+import SVGRender from '@/app/_components/svgRender';
 import { MyAssetsTestData, TutorialTestData } from '@/constants/constants';
 import { SliderType, HomePageTabsKey } from '@/types/global';
 import { handleSetTheme } from '@/utils/func';
 
 const Home = () => {
   const [tabKey, setTabKey] = useState<string>(HomePageTabsKey.recommended);
-
-  useEffect(() => {
-    // setIsClient(true);
-  }, []);
 
   return (
     <StyleProvider layer>
@@ -49,15 +46,15 @@ const Home = () => {
                   suffix={<Image src={Images.SearchIcon} alt="" />}
                 />
               </div>
-              <IconContainer className="bg-themeContainerBg">
+              {/* <IconContainer className="bg-themeContainerBg">
                 <Image src={Images.GiftIcon} alt="" />
               </IconContainer>
               <IconContainer className="bg-themeContainerBg">
                 <Image src={Images.MessageIcon} alt="" />
-              </IconContainer>
+              </IconContainer> */}
               <ButtonStyled
                 className="bg-homeTabActive"
-                onClick={() => handleSetTheme(false)}
+                onClick={handleSetTheme}
               >
                 创建设计
               </ButtonStyled>
@@ -66,16 +63,58 @@ const Home = () => {
         </Row>
         <Row className="mt-[32px]" gutter={[16, 16]}>
           {HomeFunctionOptionHigh.map((item, index) => (
-            <Col key={index} span={6}>
-              <FunctionOptionContainer $isHigh>{item}</FunctionOptionContainer>
+            <Col key={`${item.name}-${index}`} span={6}>
+              <FunctionOptionContainer $isHigh>
+                <Row>
+                  <Col span={12}>
+                    <SVGRender
+                      src={item.icon.src}
+                      classProps="text-themePrimary pt-6 pl-6"
+                    />
+                    <div className="pt-10 pl-6 pb-6">
+                      <div className="mb-4">{item.name}</div>
+                      <div className="text-xs text-themeContainerColor">
+                        {item.label}
+                      </div>
+                    </div>
+                  </Col>
+                  <Col span={12}>
+                    <div className="flex items-end h-full">
+                      <img
+                        src={item.banner.src}
+                        alt=""
+                        className="rounded-2xl"
+                      />
+                    </div>
+                  </Col>
+                </Row>
+              </FunctionOptionContainer>
             </Col>
           ))}
         </Row>
         <Row className="mt-[24px]" gutter={[16, 16]}>
           {HomeFunctionOptionLow.map((item, index) => (
-            <Col key={index} span={4}>
+            <Col key={`${item.name}-${index}`} span={4}>
               <FunctionOptionContainer $isHigh={false}>
-                {item}
+                <Row className="h-full">
+                  <Col span={18}>
+                    <div className="flex h-full items-center pl-4">
+                      <SVGRender
+                        src={item.icon.src}
+                        classProps="text-themeHomeFunctionColor mr-2"
+                      />
+                      <div className="text-themeHomeFunctionColor text-sm">
+                        {item.name}
+                      </div>
+                    </div>
+                  </Col>
+                  <Col span={6}>
+                    <SVGRender
+                      src={Images.ToRightIcon.src}
+                      classProps="text-themeHomeFunctionColor flex h-full items-center justify-end pr-2.5"
+                    />
+                  </Col>
+                </Row>
               </FunctionOptionContainer>
             </Col>
           ))}

@@ -30,10 +30,7 @@ const IconContainer = styled.div`
 `;
 
 const FunctionOptionContainer = styled.div<{ $isHigh: boolean }>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: ${(props) => (props.$isHigh ? '168px' : '52px')};
+  height: ${(props) => (props.$isHigh ? 'auto' : '52px')};
   background: var(--theme-container-bg);
   border-radius: 16px;
   font-size: ${(props) => (props.$isHigh ? '24px' : '14px')};

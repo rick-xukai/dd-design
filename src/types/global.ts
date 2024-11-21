@@ -20,3 +20,10 @@ export enum ThemeType {
   light = 'light',
   dark = 'dark',
 }
+
+export interface WaterfallItemsPositions {
+  height: number;
+  width: number;
+  xCoordinate: number;
+  yCoordinate: number;
+}
