@@ -3,6 +3,10 @@ import _ from 'lodash';
 
 import HomePageWaterfullTestData from '@/constants/homePageWaterfullTestData.json';
 
+/**
+ * 获取首页推荐瀑布流数据
+ * 注：用来测试，数据为固定的假数据
+ */
 export const POST = async (req: NextRequest) => {
   const body = await req.json();
   try {
