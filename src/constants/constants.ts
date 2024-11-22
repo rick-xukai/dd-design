@@ -250,3 +250,17 @@ export const MainContainerWidth = {
   default: '240px',
   lg: '85px',
 };
+export const CarouselPlaceholder = [
+  {
+    id: '1',
+    imageUrl: '',
+    width: 500,
+    height: 500,
+  },
+  {
+    id: '2',
+    imageUrl: '',
+    width: 500,
+    height: 500,
+  },
+];

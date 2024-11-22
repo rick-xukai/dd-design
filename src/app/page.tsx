@@ -1,12 +1,12 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Input, Col, Row, Tabs } from 'antd';
 import { StyleProvider } from '@ant-design/cssinjs';
 import Image from 'next/image';
+import _ from 'lodash';
 
 import {
   ButtonStyled,
-  IconContainer,
   FunctionOptionContainer,
   TabsContainer,
 } from '@/styles/homePage.style';
@@ -15,6 +15,7 @@ import {
   HomeFunctionOptionHigh,
   HomeFunctionOptionLow,
   HomePageTabs,
+  CarouselPlaceholder,
 } from '@/constants/constants';
 import SliderComponent from '@/app/_components/sliderComponent';
 import Waterfall from '@/app/_components/waterfall';
@@ -22,9 +23,63 @@ import SVGRender from '@/app/_components/svgRender';
 import { MyAssetsTestData, TutorialTestData } from '@/constants/constants';
 import { SliderType, HomePageTabsKey } from '@/types/global';
 import { handleSetTheme } from '@/utils/func';
+import useHomePageStore from '@/store/homePage.store';
 
 const Home = () => {
+  const { fetchData, recommendedData, waterfullListTotal } = useHomePageStore();
+
   const [tabKey, setTabKey] = useState<string>(HomePageTabsKey.recommended);
+  const [pageNumber, setPageNumber] = useState<number>(1);
+  const [comboRecommendedData, setComboRecommendedData] = useState<any>({
+    waterfall: [],
+    carousels: [],
+  });
+
+  const getData = async () => {
+    const payload = {
+      pageNumber: pageNumber,
+      pageSize: 20,
+    };
+
+    fetchData('/api/recommendedList', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
+  };
+
+  useEffect(() => {
+    const { carouselList } = recommendedData;
+    let placeholderCount = carouselList && carouselList.length ? 2 : 0;
+    if (
+      waterfullListTotal !== null &&
+      comboRecommendedData.waterfall.length ===
+        waterfullListTotal + placeholderCount
+    ) {
+      return;
+    }
+    getData();
+  }, [pageNumber]);
+
+  useEffect(() => {
+    if (!_.isEmpty(recommendedData)) {
+      let waterfallList = comboRecommendedData.waterfall;
+      const { recommendedList, carouselList } = recommendedData;
+      // 如果存在轮播图的话添加占位符
+      if (carouselList && carouselList.length) {
+        waterfallList = _.union(
+          CarouselPlaceholder,
+          comboRecommendedData.waterfall
+        );
+      }
+      setComboRecommendedData({
+        waterfall: [...waterfallList, ...recommendedList],
+        carousels: carouselList,
+      });
+    }
+  }, [recommendedData]);
 
   return (
     <StyleProvider layer>
@@ -95,7 +150,7 @@ const Home = () => {
         <Row className="mt-[24px]" gutter={[16, 16]}>
           {HomeFunctionOptionLow.map((item, index) => (
             <Col key={`${item.name}-${index}`} span={4}>
-              <FunctionOptionContainer $isHigh={false}>
+              <FunctionOptionContainer $isHigh={false} title={item.name}>
                 <Row className="h-full">
                   <Col span={18}>
                     <div className="flex h-full items-center pl-4">
@@ -103,7 +158,7 @@ const Home = () => {
                         src={item.icon.src}
                         classProps="text-themeHomeFunctionColor mr-2"
                       />
-                      <div className="text-themeHomeFunctionColor text-sm">
+                      <div className="text-themeHomeFunctionColor text-sm truncate">
                         {item.name}
                       </div>
                     </div>
@@ -147,7 +202,12 @@ const Home = () => {
           </TabsContainer>
           {(tabKey === HomePageTabsKey.recommended ||
             tabKey === HomePageTabsKey.daily ||
-            tabKey === HomePageTabsKey.hot) && <Waterfall />}
+            tabKey === HomePageTabsKey.hot) && (
+            <Waterfall
+              sourceData={comboRecommendedData}
+              nextPage={() => setPageNumber(pageNumber + 1)}
+            />
+          )}
         </div>
       </div>
     </StyleProvider>

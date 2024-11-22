@@ -20,8 +20,9 @@ const CheckMoreButton = styled.div`
 const SliderContainer = styled.div`
   margin-top: 10px;
   display: flex;
-  overflow: auto;
+  overflow-x: auto;
   border-radius: 16px;
+  scroll-behavior: smooth;
   &::-webkit-scrollbar {
     display: none;
   }

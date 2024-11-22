@@ -20,7 +20,7 @@ const Navigation = () => {
   const { width } = useWindowSize();
 
   return (
-    <Container className="sticky top-0 left-0 h-screen px-[16px] py-[40px] overflow-auto">
+    <Container className="fixed top-0 left-0 h-screen px-[16px] py-[40px] overflow-auto bg-background z-[999]">
       <div className="flex flex-col h-full">
         <div className="lg:px-[16px] text-themePrimary flex items-center lg:justify-normal justify-center">
           <SVGRender
@@ -57,7 +57,7 @@ const Navigation = () => {
                       </OptionTag>
                     )}
                     {option.name === '视频生成' && (
-                      <OptionTag className="bg-navigationTag2 text-navigationTagText2 w-[40px] h-[24px] text-xs">
+                      <OptionTag className="bg-navigationTagText1 text-navigationTagText2 w-[40px] h-[24px] text-xs">
                         最新
                       </OptionTag>
                     )}
@@ -67,7 +67,7 @@ const Navigation = () => {
             ))}
           </div>
         ))}
-        <div className="mt-auto lg:pl-[16px] flex items-center">
+        <div className="mt-auto flex items-center pt-[50px] avatar-container">
           <Avatar icon={<img src={Images.TestImages6.src} />} />
           {width > BreakPoint.lg && (
             <span className="ml-[10px] text-base text-themePrimary">
