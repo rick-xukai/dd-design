@@ -34,11 +34,11 @@ export default function RootLayout({
       <body>
         <AntdRegistry>
           <StyledComponentsRegistry>
-            <div className="flex">
-              <div className="relative">
+            <div className="flex overflow-x-auto">
+              <div className="relative lg:w-[240px] w-[85px] min-w-[85px]">
                 <Navigation />
               </div>
-              <div className="lg:w-[calc(100%-240px)] w-[calc(100%-85px)]">
+              <div className="lg:w-[calc(100%-240px)] w-[calc(100%-85px)] content">
                 {children}
                 <FloatButton
                   icon={<img src={Images.FloatButtonIcon.src} alt="" />}

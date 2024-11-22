@@ -54,9 +54,22 @@ svg {
   color: #fff;
 }
 
+.content {
+  min-width: calc(1024px - 85px);
+  max-width: 1600px;
+  margin: auto;
+}
+/* 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #000000;
-    --foreground: #ededed;
+    --foreground: #171717;
+    --theme-primary: #ffffff;
+    --theme-navigation-color: #ffffffa3;
+    --theme-home-label-color: #ffffffa3;
+    --theme-home-function-color: #ffffff52;
+    --theme-container-bg: #ffffff14;
+    --theme-container-color: #ffffff52;
+    --theme-container-color2: #ffffff7a;
   }
-}
+} */
