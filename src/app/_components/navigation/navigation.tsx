@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { Avatar } from 'antd';
+import { Avatar, Badge } from 'antd';
 import _ from 'lodash';
 import { useWindowSize } from 'react-use';
 
@@ -67,13 +67,46 @@ const Navigation = () => {
             ))}
           </div>
         ))}
-        <div className="mt-auto flex items-center pt-[50px] avatar-container">
-          <Avatar icon={<img src={Images.TestImages6.src} />} />
-          {width > BreakPoint.lg && (
-            <span className="ml-[10px] text-base text-themePrimary">
-              User name
-            </span>
-          )}
+        <div className="mt-auto pb-6 pt-[50px] avatar-container">
+          <div>
+            <OptionContainer className="flex h-[48px] items-center mb-2 cursor-pointer px-[16px]">
+              <SVGRender
+                src={Images.DownloadIcon.src}
+                classProps="text-themePrimary"
+              />
+              {width > BreakPoint.lg && (
+                <div className="text-themePrimary text-base ml-4">下载</div>
+              )}
+            </OptionContainer>
+            <OptionContainer className="flex h-[48px] items-center mb-2 cursor-pointer px-[16px]">
+              <SVGRender
+                src={Images.GiftIcon.src}
+                classProps="text-themePrimary"
+              />
+              {width > BreakPoint.lg && (
+                <div className="text-themePrimary text-base ml-4">任务</div>
+              )}
+            </OptionContainer>
+            <OptionContainer className="flex h-[48px] items-center mb-2 cursor-pointer px-[16px]">
+              <Badge count={10} overflowCount={999}>
+                <SVGRender
+                  src={Images.MessageIcon.src}
+                  classProps="text-themePrimary"
+                />
+              </Badge>
+              {width > BreakPoint.lg && (
+                <div className="text-themePrimary text-base ml-4">消息</div>
+              )}
+            </OptionContainer>
+          </div>
+          <div className="mt-[24px]">
+            <Avatar icon={<img src={Images.TestImages6.src} />} />
+            {width > BreakPoint.lg && (
+              <span className="ml-[10px] text-base text-themePrimary">
+                User name
+              </span>
+            )}
+          </div>
         </div>
       </div>
     </Container>

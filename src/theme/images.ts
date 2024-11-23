@@ -22,6 +22,7 @@ import BookIcon from '@/assets/book-icon.svg';
 import FloatButtonIcon from '@/assets/float-button-icon.svg';
 import ShadowIcon from '@/assets/shadow-icon.svg';
 import ToRightIcon from '@/assets/to-right-icon.svg';
+import DownloadIcon from '@/assets/download-icon.svg';
 // Test Images
 import TestImages1 from '@/assets/testImages/testImages1.png';
 import TestImages2 from '@/assets/testImages/testImages2.png';
@@ -67,4 +68,5 @@ export const Images = {
   ToRightIcon,
   TestImages8,
   TestImages9,
+  DownloadIcon,
 };
