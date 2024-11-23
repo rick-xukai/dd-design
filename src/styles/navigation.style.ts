@@ -21,11 +21,6 @@ const Container = styled.div`
   @media (max-width: 1024px) {
     width: ${MainContainerWidth.lg};
   }
-  @media (min-width: 1024px) {
-    .avatar-container {
-      padding-left: 16px;
-    }
-  }
 `;
 
 const OptionContainer = styled.div`

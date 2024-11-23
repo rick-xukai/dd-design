@@ -44,6 +44,10 @@ svg {
   stroke: currentColor;
 }
 
+.ant-btn {
+  border: none !important;
+}
+
 .ant-float-btn-icon {
   width: auto !important;
 }
@@ -58,6 +62,10 @@ svg {
   min-width: calc(1024px - 85px);
   max-width: 1600px;
   margin: auto;
+}
+
+.ant-badge-count {
+  box-shadow: none !important;
 }
 /* 
 @media (prefers-color-scheme: dark) {
