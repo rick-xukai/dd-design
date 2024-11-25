@@ -53,7 +53,7 @@ const Navigation = () => {
                 />
                 {width > BreakPoint.lg && (
                   <>
-                    <div className="text-themePrimary text-base ml-4">
+                    <div className="text-themePrimary text-sm ml-4">
                       {option.name}
                     </div>
                     {option.name === '我的资产' && (
@@ -80,7 +80,7 @@ const Navigation = () => {
                 classProps="text-themePrimary"
               />
               {width > BreakPoint.lg && (
-                <div className="text-themePrimary text-base ml-4">下载</div>
+                <div className="text-themePrimary text-sm ml-4">下载</div>
               )}
             </OptionContainer>
             <OptionContainer className="flex h-[48px] items-center mb-2 cursor-pointer px-[16px]">
@@ -89,7 +89,7 @@ const Navigation = () => {
                 classProps="text-themePrimary"
               />
               {width > BreakPoint.lg && (
-                <div className="text-themePrimary text-base ml-4">任务</div>
+                <div className="text-themePrimary text-sm ml-4">任务</div>
               )}
             </OptionContainer>
             <OptionContainer className="flex h-[48px] items-center mb-2 cursor-pointer px-[16px]">
@@ -100,14 +100,14 @@ const Navigation = () => {
                 />
               </Badge>
               {width > BreakPoint.lg && (
-                <div className="text-themePrimary text-base ml-4">消息</div>
+                <div className="text-themePrimary text-sm ml-4">消息</div>
               )}
             </OptionContainer>
           </div>
           <div className="mt-[24px]">
             <Avatar icon={<img src={Images.TestImages6.src} />} />
             {width > BreakPoint.lg && (
-              <span className="ml-[10px] text-base text-themePrimary">
+              <span className="ml-[10px] text-sm text-themePrimary">
                 User name
               </span>
             )}
