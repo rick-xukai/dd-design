@@ -1,13 +1,12 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 
-import { Images } from '@/theme/images';
 import {
   CheckMoreButton,
   ImageCardContainer,
   SliderContainer,
 } from '@/styles/sliderComponent.style';
-import { SliderType } from '@/types/global';
+import { SliderType, SVGName } from '@/types/global';
 import SVGRender from '@/app/_components/svgRender';
 
 const SliderComponent = ({
@@ -28,7 +27,10 @@ const SliderComponent = ({
       <Row>
         <Col span={12}>
           <div className="flex items-center h-[100%]">
-            <SVGRender src={icon} classProps="text-themeNavigationColor" />
+            <SVGRender
+              componentName={icon}
+              classProps="text-themeNavigationColor"
+            />
             <div className="ml-[5px] text-themeHomeLabelColor text-base">
               {title}
             </div>
@@ -39,7 +41,7 @@ const SliderComponent = ({
             <CheckMoreButton onClick={moreFunction}>
               <div>更多</div>
               <SVGRender
-                src={Images.RightArrowIcon.src}
+                componentName={SVGName.RightArrow}
                 classProps="text-themeHomeLabelColor"
               />
             </CheckMoreButton>

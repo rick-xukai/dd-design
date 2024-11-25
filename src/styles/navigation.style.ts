@@ -24,6 +24,10 @@ const Container = styled.div`
 `;
 
 const OptionContainer = styled.div`
+  &.active {
+    background: var(--theme-container-bg);
+    border-radius: 16px;
+  }
   &:hover {
     background: var(--theme-container-bg);
     border-radius: 16px;

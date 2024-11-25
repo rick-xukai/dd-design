@@ -1,30 +1,37 @@
 'use client';
 import React from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { Avatar, Badge } from 'antd';
 import _ from 'lodash';
 import { useWindowSize } from 'react-use';
+import classnames from 'classnames';
 
 import {
   Container,
   OptionContainer,
   OptionTag,
 } from '@/styles/navigation.style';
-import { BreakPoint } from '@/types/global';
+import { BreakPoint, SVGName } from '@/types/global';
 import { Images } from '@/theme/images';
 import { NavigationOptions } from '@/constants/constants';
 import SVGRender from '@/app/_components/svgRender';
 
 const Navigation = () => {
   const router = useRouter();
+  const pathname = usePathname();
   const { width } = useWindowSize();
 
   return (
     <Container className="fixed top-0 left-0 h-screen px-[16px] py-[40px] overflow-auto bg-background z-[999]">
       <div className="flex flex-col h-full">
-        <div className="lg:px-[16px] text-themePrimary flex items-center lg:justify-normal justify-center">
+        <div
+          onClick={() => router.push('/')}
+          className="lg:px-[16px] cursor-pointer text-themePrimary flex items-center lg:justify-normal justify-center"
+        >
           <SVGRender
-            src={width > BreakPoint.lg ? Images.NameLogo.src : Images.Logo.src}
+            componentName={
+              width > BreakPoint.lg ? SVGName.NameLogo : SVGName.Logo
+            }
             classProps="lg:w-[128px] w-[48px] h-[48px] svg-logo"
           />
         </div>
@@ -39,16 +46,21 @@ const Navigation = () => {
             {item.options.map((option) => (
               <OptionContainer
                 key={option.link}
-                className="flex h-[48px] items-center mb-2 cursor-pointer px-[16px]"
+                className={classnames(
+                  'flex h-[48px] items-center mb-2 cursor-pointer px-[16px]',
+                  {
+                    active: option.link === pathname,
+                  }
+                )}
                 onClick={() => router.push(option.link)}
               >
                 <SVGRender
-                  src={option.icon.src}
+                  componentName={option.icon}
                   classProps="text-themePrimary"
                 />
                 {width > BreakPoint.lg && (
                   <>
-                    <div className="text-themePrimary text-base ml-4">
+                    <div className="text-themePrimary text-sm ml-4">
                       {option.name}
                     </div>
                     {option.name === '我的资产' && (
@@ -71,38 +83,38 @@ const Navigation = () => {
           <div>
             <OptionContainer className="flex h-[48px] items-center mb-2 cursor-pointer px-[16px]">
               <SVGRender
-                src={Images.DownloadIcon.src}
+                componentName={SVGName.Download}
                 classProps="text-themePrimary"
               />
               {width > BreakPoint.lg && (
-                <div className="text-themePrimary text-base ml-4">下载</div>
+                <div className="text-themePrimary text-sm ml-4">下载</div>
               )}
             </OptionContainer>
             <OptionContainer className="flex h-[48px] items-center mb-2 cursor-pointer px-[16px]">
               <SVGRender
-                src={Images.GiftIcon.src}
+                componentName={SVGName.Gift}
                 classProps="text-themePrimary"
               />
               {width > BreakPoint.lg && (
-                <div className="text-themePrimary text-base ml-4">任务</div>
+                <div className="text-themePrimary text-sm ml-4">任务</div>
               )}
             </OptionContainer>
             <OptionContainer className="flex h-[48px] items-center mb-2 cursor-pointer px-[16px]">
               <Badge count={10} overflowCount={999}>
                 <SVGRender
-                  src={Images.MessageIcon.src}
+                  componentName={SVGName.Message}
                   classProps="text-themePrimary"
                 />
               </Badge>
               {width > BreakPoint.lg && (
-                <div className="text-themePrimary text-base ml-4">消息</div>
+                <div className="text-themePrimary text-sm ml-4">消息</div>
               )}
             </OptionContainer>
           </div>
           <div className="mt-[24px]">
             <Avatar icon={<img src={Images.TestImages6.src} />} />
             {width > BreakPoint.lg && (
-              <span className="ml-[10px] text-base text-themePrimary">
+              <span className="ml-[10px] text-sm text-themePrimary">
                 User name
               </span>
             )}

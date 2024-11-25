@@ -3,6 +3,7 @@ import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { FloatButton } from 'antd';
 
 import Navigation from '@/app/_components/navigation';
+import AntdStyleProvider from '@/app/_components/antdStyleProvider';
 import '@/styles/globals.css';
 import StyledComponentsRegistry from '@/lib/styledRegistry';
 import { Images } from '@/theme/images';
@@ -39,10 +40,12 @@ export default function RootLayout({
                 <Navigation />
               </div>
               <div className="lg:w-[calc(100%-240px)] w-[calc(100%-85px)] content">
-                {children}
-                <FloatButton
-                  icon={<img src={Images.FloatButtonIcon.src} alt="" />}
-                />
+                <AntdStyleProvider>
+                  {children}
+                  <FloatButton
+                    icon={<img src={Images.FloatButtonIcon.src} alt="" />}
+                  />
+                </AntdStyleProvider>
               </div>
             </div>
           </StyledComponentsRegistry>

@@ -7,9 +7,7 @@ const PageNotFound = () => (
       <div className="text-[60px]">
         <FrownOutlined />
       </div>
-      <div className="mt-6 text-2xl">
-        Whoops, the page you are looking for was not found.
-      </div>
+      <div className="mt-6 text-2xl">糟糕! 你要找的页面不存在</div>
     </div>
   </div>
 );

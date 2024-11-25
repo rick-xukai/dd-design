@@ -28,3 +28,29 @@ export interface WaterfallItemsPositions {
   xCoordinate: number;
   yCoordinate: number;
 }
+
+export enum SVGName {
+  Logo = 'Logo',
+  NameLogo = 'NameLogo',
+  Home = 'Home',
+  Communal = 'Communal',
+  Event = 'Event',
+  Store = 'Store',
+  Liabilities = 'Liabilities',
+  Assistants = 'Assistants',
+  Images = 'Images',
+  Muise = 'Muise',
+  Video = 'Video',
+  Tool = 'Tool',
+  Knowledge = 'Knowledge',
+  Plus = 'Plus',
+  Search = 'Search',
+  Gift = 'Gift',
+  Message = 'Message',
+  RightArrow = 'RightArrow',
+  Book = 'Book',
+  FloatButton = 'FloatButton',
+  Shadow = 'Shadow',
+  ToRight = 'ToRight',
+  Download = 'Download',
+}
