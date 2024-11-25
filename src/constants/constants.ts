@@ -1,27 +1,27 @@
 import { Images } from '@/theme/images';
-import { HomePageTabsKey } from '@/types/global';
+import { HomePageTabsKey, SVGName } from '@/types/global';
 
 export const NavigationOptions = [
   {
     label: '',
     options: [
       {
-        icon: Images.MenuHomeIcon,
+        icon: SVGName.Home,
         name: '首页',
         link: '/',
       },
       {
-        icon: Images.MenuCommunalIcon,
+        icon: SVGName.Communal,
         name: '社区',
         link: '/communal',
       },
       {
-        icon: Images.MenuEventIcon,
+        icon: SVGName.Event,
         name: '活动',
         link: '/event',
       },
       {
-        icon: Images.MenuStoreIcon,
+        icon: SVGName.Store,
         name: '商店',
         link: '/store',
       },
@@ -31,32 +31,32 @@ export const NavigationOptions = [
     label: 'AI 创作',
     options: [
       {
-        icon: Images.MenuAssistantsIcon,
+        icon: SVGName.Assistants,
         name: '我的资产',
         link: '/liabilities',
       },
       {
-        icon: Images.MenuLiabilitiesIcon,
+        icon: SVGName.Liabilities,
         name: '智能助理',
         link: '/assistants',
       },
       {
-        icon: Images.MenuImagesIcon,
+        icon: SVGName.Images,
         name: '图片生成',
         link: '/image-generating',
       },
       {
-        icon: Images.MenuMuiseIcon,
+        icon: SVGName.Muise,
         name: '音乐生成',
         link: '/muise-generating',
       },
       {
-        icon: Images.MenuVideoIcon,
+        icon: SVGName.Video,
         name: '视频生成',
         link: '/video-generating',
       },
       {
-        icon: Images.MenuToolIcon,
+        icon: SVGName.Tool,
         name: '应用中心',
         link: '/tool',
       },
@@ -66,12 +66,12 @@ export const NavigationOptions = [
     label: '团队',
     options: [
       {
-        icon: Images.MenuKnowledgeIcon,
+        icon: SVGName.Knowledge,
         name: '知识空间',
         link: '/knowledge',
       },
       {
-        icon: Images.MenuPlusIcon,
+        icon: SVGName.Plus,
         name: '知识库',
         link: '/repository',
       },
@@ -92,52 +92,52 @@ export const HomeFunctionOptionHigh = [
   {
     name: '图像生成',
     label: '让创意触手可及',
-    icon: Images.MenuImagesIcon,
+    icon: SVGName.Images,
     banner: Images.TestImages7,
   },
   {
     name: '音乐生成',
     label: '让创意触手可及',
-    icon: Images.MenuImagesIcon,
+    icon: SVGName.Images,
     banner: Images.TestImages7,
   },
   {
     name: '视频生成',
     label: '让创意触手可及',
     banner: Images.TestImages7,
-    icon: Images.MenuImagesIcon,
+    icon: SVGName.Images,
   },
   {
     name: '数字人',
     label: '让创意触手可及',
     banner: Images.TestImages7,
-    icon: Images.MenuImagesIcon,
+    icon: SVGName.Images,
   },
 ];
 export const HomeFunctionOptionLow = [
   {
     name: '智能抠图',
-    icon: Images.ShadowIcon,
+    icon: SVGName.Shadow,
   },
   {
     name: '智能抠图',
-    icon: Images.ShadowIcon,
+    icon: SVGName.Shadow,
   },
   {
     name: '智能抠图',
-    icon: Images.ShadowIcon,
+    icon: SVGName.Shadow,
   },
   {
     name: '智能抠图',
-    icon: Images.ShadowIcon,
+    icon: SVGName.Shadow,
   },
   {
     name: '智能抠图',
-    icon: Images.ShadowIcon,
+    icon: SVGName.Shadow,
   },
   {
     name: '智能抠图',
-    icon: Images.ShadowIcon,
+    icon: SVGName.Shadow,
   },
 ];
 export const MyAssetsTestData = [

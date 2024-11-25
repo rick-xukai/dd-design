@@ -21,7 +21,7 @@ import SliderComponent from '@/app/_components/sliderComponent';
 import Waterfall from '@/app/_components/waterfall';
 import SVGRender from '@/app/_components/svgRender';
 import { MyAssetsTestData, TutorialTestData } from '@/constants/constants';
-import { SliderType, HomePageTabsKey } from '@/types/global';
+import { SliderType, HomePageTabsKey, SVGName } from '@/types/global';
 import { handleSetTheme } from '@/utils/func';
 import useHomePageStore from '@/store/homePage.store';
 
@@ -101,12 +101,6 @@ const Home = () => {
                   suffix={<Image src={Images.SearchIcon} alt="" />}
                 />
               </div>
-              {/* <IconContainer className="bg-themeContainerBg">
-                <Image src={Images.GiftIcon} alt="" />
-              </IconContainer>
-              <IconContainer className="bg-themeContainerBg">
-                <Image src={Images.MessageIcon} alt="" />
-              </IconContainer> */}
               <ButtonStyled
                 className="bg-homeTabActive"
                 onClick={handleSetTheme}
@@ -123,7 +117,7 @@ const Home = () => {
                 <Row>
                   <Col span={12}>
                     <SVGRender
-                      src={item.icon.src}
+                      componentName={item.icon}
                       classProps="text-themePrimary pt-6 pl-6"
                     />
                     <div className="pt-10 pl-6 pb-6">
@@ -155,7 +149,7 @@ const Home = () => {
                   <Col span={18}>
                     <div className="flex h-full items-center pl-4">
                       <SVGRender
-                        src={item.icon.src}
+                        componentName={item.icon}
                         classProps="text-themeHomeFunctionColor mr-2"
                       />
                       <div className="text-themeHomeFunctionColor text-sm truncate">
@@ -165,7 +159,7 @@ const Home = () => {
                   </Col>
                   <Col span={6}>
                     <SVGRender
-                      src={Images.ToRightIcon.src}
+                      componentName={SVGName.ToRight}
                       classProps="text-themeHomeFunctionColor flex h-full items-center justify-end pr-2.5"
                     />
                   </Col>
@@ -177,7 +171,7 @@ const Home = () => {
         <div className="mt-[24px]">
           <SliderComponent
             type={SliderType.imageOnly}
-            icon={Images.MenuAssistantsIcon.src}
+            icon={SVGName.Assistants}
             title="我的资产"
             data={MyAssetsTestData}
             moreFunction={() => {}}
@@ -186,7 +180,7 @@ const Home = () => {
         <div className="mt-[24px]">
           <SliderComponent
             type={SliderType.imageCard}
-            icon={Images.BookIcon.src}
+            icon={SVGName.Book}
             title="新手入门"
             data={TutorialTestData}
             moreFunction={() => {}}
