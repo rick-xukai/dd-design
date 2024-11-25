@@ -1,9 +1,10 @@
 'use client';
 import React from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { Avatar, Badge } from 'antd';
 import _ from 'lodash';
 import { useWindowSize } from 'react-use';
+import classnames from 'classnames';
 
 import {
   Container,
@@ -17,6 +18,7 @@ import SVGRender from '@/app/_components/svgRender';
 
 const Navigation = () => {
   const router = useRouter();
+  const pathname = usePathname();
   const { width } = useWindowSize();
 
   return (
@@ -44,7 +46,12 @@ const Navigation = () => {
             {item.options.map((option) => (
               <OptionContainer
                 key={option.link}
-                className="flex h-[48px] items-center mb-2 cursor-pointer px-[16px]"
+                className={classnames(
+                  'flex h-[48px] items-center mb-2 cursor-pointer px-[16px]',
+                  {
+                    active: option.link === pathname,
+                  }
+                )}
                 onClick={() => router.push(option.link)}
               >
                 <SVGRender

@@ -1,4 +1,5 @@
 import { Images } from '@/theme/images';
+import { RouterKeys } from '@/constants/keys';
 import { HomePageTabsKey, SVGName } from '@/types/global';
 
 export const NavigationOptions = [
@@ -8,22 +9,22 @@ export const NavigationOptions = [
       {
         icon: SVGName.Home,
         name: '首页',
-        link: '/',
+        link: RouterKeys.home,
       },
       {
         icon: SVGName.Communal,
         name: '社区',
-        link: '/communal',
+        link: RouterKeys.community,
       },
       {
         icon: SVGName.Event,
         name: '活动',
-        link: '/event',
+        link: RouterKeys.events,
       },
       {
         icon: SVGName.Store,
         name: '商店',
-        link: '/store',
+        link: RouterKeys.stores,
       },
     ],
   },
@@ -33,32 +34,32 @@ export const NavigationOptions = [
       {
         icon: SVGName.Assistants,
         name: '我的资产',
-        link: '/liabilities',
+        link: RouterKeys.myAssets,
       },
       {
         icon: SVGName.Liabilities,
         name: '智能助理',
-        link: '/assistants',
+        link: RouterKeys.intelligentAssistant,
       },
       {
         icon: SVGName.Images,
         name: '图片生成',
-        link: '/image-generating',
+        link: RouterKeys.imageGeneration,
       },
       {
         icon: SVGName.Muise,
         name: '音乐生成',
-        link: '/muise-generating',
+        link: RouterKeys.musicGeneration,
       },
       {
         icon: SVGName.Video,
         name: '视频生成',
-        link: '/video-generating',
+        link: RouterKeys.videoGeneration,
       },
       {
         icon: SVGName.Tool,
         name: '应用中心',
-        link: '/tool',
+        link: RouterKeys.appCenter,
       },
     ],
   },
@@ -68,12 +69,12 @@ export const NavigationOptions = [
       {
         icon: SVGName.Knowledge,
         name: '知识空间',
-        link: '/knowledge',
+        link: RouterKeys.knowledgeSpace,
       },
       {
         icon: SVGName.Plus,
         name: '知识库',
-        link: '/repository',
+        link: RouterKeys.knowledgeBase,
       },
     ],
   },
