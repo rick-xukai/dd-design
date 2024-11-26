@@ -8,72 +8,72 @@ export const NavigationOptions = [
     options: [
       {
         icon: SVGName.Home,
-        name: '首页',
+        name: 'home',
         link: RouterKeys.home,
       },
       {
         icon: SVGName.Communal,
-        name: '社区',
+        name: 'community',
         link: RouterKeys.community,
       },
       {
         icon: SVGName.Event,
-        name: '活动',
+        name: 'events',
         link: RouterKeys.events,
       },
       {
         icon: SVGName.Store,
-        name: '商店',
+        name: 'stores',
         link: RouterKeys.stores,
       },
     ],
   },
   {
-    label: 'AI 创作',
+    label: 'AICreation',
     options: [
       {
         icon: SVGName.Assistants,
-        name: '我的资产',
+        name: 'myAssets',
         link: RouterKeys.myAssets,
       },
       {
         icon: SVGName.Liabilities,
-        name: '智能助理',
+        name: 'intelligentAssistant',
         link: RouterKeys.intelligentAssistant,
       },
       {
         icon: SVGName.Images,
-        name: '图片生成',
+        name: 'imageGeneration',
         link: RouterKeys.imageGeneration,
       },
       {
         icon: SVGName.Muise,
-        name: '音乐生成',
+        name: 'musicGeneration',
         link: RouterKeys.musicGeneration,
       },
       {
         icon: SVGName.Video,
-        name: '视频生成',
+        name: 'videoGeneration',
         link: RouterKeys.videoGeneration,
       },
       {
         icon: SVGName.Tool,
-        name: '应用中心',
+        name: 'appCenter',
         link: RouterKeys.appCenter,
       },
     ],
   },
   {
-    label: '团队',
+    label: 'team',
     options: [
       {
         icon: SVGName.Knowledge,
-        name: '知识空间',
+        name: 'knowledgeSpace',
         link: RouterKeys.knowledgeSpace,
       },
       {
         icon: SVGName.Plus,
-        name: '知识库',
+        name: 'knowledgeBase',
         link: RouterKeys.knowledgeBase,
       },
     ],
@@ -223,28 +223,6 @@ export const TutorialTestData = [
     description: '阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯蒂芬阿三阿斯蒂芬阿斯弗',
     duration: '6Min',
     image: Images.TestImages5,
-  },
-];
-export const HomePageTabs = [
-  {
-    key: HomePageTabsKey.recommended,
-    label: '推荐',
-  },
-  {
-    key: HomePageTabsKey.hot,
-    label: '热门',
-  },
-  {
-    key: HomePageTabsKey.daily,
-    label: '每日精选',
-  },
-  {
-    key: HomePageTabsKey.favorite,
-    label: '喜欢',
-  },
-  {
-    key: HomePageTabsKey.collection,
-    label: '收藏',
   },
 ];
 export const MainContainerWidth = {

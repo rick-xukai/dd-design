@@ -1,11 +1,13 @@
 'use client';
 import React from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { Avatar, Badge } from 'antd';
 import _ from 'lodash';
 import { useWindowSize } from 'react-use';
 import classnames from 'classnames';
+import { useTranslations } from 'next-intl';
 
+import { useRouter } from '@/i18n/routing';
 import {
   Container,
   OptionContainer,
@@ -17,6 +19,7 @@ import { NavigationOptions } from '@/constants/constants';
 import SVGRender from '@/app/_components/svgRender';
 
 const Navigation = () => {
+  const t = useTranslations();
   const router = useRouter();
   const pathname = usePathname();
   const { width } = useWindowSize();
@@ -40,7 +43,7 @@ const Navigation = () => {
           <div key={index} className="pt-[40px]">
             {item.label && width > BreakPoint.lg && (
               <div className="text-themeContainerColor text-xs mb-2 px-[16px]">
-                {item.label}
+                {t(item.label)}
               </div>
             )}
             {item.options.map((option) => (
@@ -61,16 +64,16 @@ const Navigation = () => {
                 {width > BreakPoint.lg && (
                   <>
                     <div className="text-themePrimary text-sm ml-4">
-                      {option.name}
+                      {t(option.name)}
                     </div>
-                    {option.name === '我的资产' && (
-                      <OptionTag className="text-navigationTagText1 w-[24px] h-[24px] bg-navigationTag1 text-xs">
+                    {option.name === 'myAssets' && (
+                      <OptionTag className="text-navigationTagText1 bg-navigationTag1 text-xs">
                         6
                       </OptionTag>
                     )}
-                    {option.name === '视频生成' && (
-                      <OptionTag className="bg-navigationTagText1 text-navigationTagText2 w-[40px] h-[24px] text-xs">
-                        最新
+                    {option.name === 'videoGeneration' && (
+                      <OptionTag className="bg-navigationTagText1 text-navigationTagText2 text-xs">
+                        {t('latest')}
                       </OptionTag>
                     )}
                   </>
@@ -87,7 +90,9 @@ const Navigation = () => {
                 classProps="text-themePrimary"
               />
               {width > BreakPoint.lg && (
-                <div className="text-themePrimary text-sm ml-4">下载</div>
+                <div className="text-themePrimary text-sm ml-4">
+                  {t('downloads')}
+                </div>
               )}
             </OptionContainer>
             <OptionContainer className="flex h-[48px] items-center mb-2 cursor-pointer px-[16px]">
@@ -96,7 +101,9 @@ const Navigation = () => {
                 classProps="text-themePrimary"
               />
               {width > BreakPoint.lg && (
-                <div className="text-themePrimary text-sm ml-4">任务</div>
+                <div className="text-themePrimary text-sm ml-4">
+                  {t('tasks')}
+                </div>
               )}
             </OptionContainer>
             <OptionContainer className="flex h-[48px] items-center mb-2 cursor-pointer px-[16px]">
@@ -107,7 +114,9 @@ const Navigation = () => {
                 />
               </Badge>
               {width > BreakPoint.lg && (
-                <div className="text-themePrimary text-sm ml-4">消息</div>
+                <div className="text-themePrimary text-sm ml-4">
+                  {t('messages')}
+                </div>
               )}
             </OptionContainer>
           </div>

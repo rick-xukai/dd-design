@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Input, Col, Row, Tabs } from 'antd';
 import Image from 'next/image';
 import _ from 'lodash';
+import { useTranslations } from 'next-intl';
 
 import {
   ButtonStyled,
@@ -13,7 +14,6 @@ import { Images } from '@/theme/images';
 import {
   HomeFunctionOptionHigh,
   HomeFunctionOptionLow,
-  HomePageTabs,
   CarouselPlaceholder,
 } from '@/constants/constants';
 import SliderComponent from '@/app/_components/sliderComponent';
@@ -25,6 +25,8 @@ import { handleSetTheme } from '@/utils/func';
 import useHomePageStore from '@/store/homePage.store';
 
 const Home = () => {
+  const t = useTranslations();
+
   const { fetchData, recommendedData, waterfullListTotal } = useHomePageStore();
 
   const [tabKey, setTabKey] = useState<string>(HomePageTabsKey.recommended);
@@ -86,7 +88,7 @@ const Home = () => {
         <Col span={6}>
           <div className="flex items-center">
             <div className="text-base text-themeNavigationColor p-[10px] cursor-pointer">
-              社区
+              {t('community')}
             </div>
           </div>
         </Col>
@@ -95,12 +97,12 @@ const Home = () => {
             <div className="w-[60%] max-w-[400px]">
               <Input
                 className="h-[48px] bg-themeContainerBg border-0 rounded-2xl px-[24px] shadow-none text-themeWhite"
-                placeholder="搜索"
+                placeholder={t('search')}
                 suffix={<Image src={Images.SearchIcon} alt="" />}
               />
             </div>
             <ButtonStyled className="bg-homeTabActive" onClick={handleSetTheme}>
-              创建设计
+              {t('createDesign')}
             </ButtonStyled>
           </div>
         </Col>
@@ -163,7 +165,7 @@ const Home = () => {
         <SliderComponent
           type={SliderType.imageOnly}
           icon={SVGName.Assistants}
-          title="我的资产"
+          title={t('myAssets')}
           data={MyAssetsTestData}
           moreFunction={() => {}}
         />
@@ -172,7 +174,7 @@ const Home = () => {
         <SliderComponent
           type={SliderType.imageCard}
           icon={SVGName.Book}
-          title="新手入门"
+          title={t('gettingStarted')}
           data={TutorialTestData}
           moreFunction={() => {}}
         />
@@ -181,7 +183,28 @@ const Home = () => {
         <TabsContainer>
           <Tabs
             defaultActiveKey={tabKey}
-            items={HomePageTabs}
+            items={[
+              {
+                key: HomePageTabsKey.recommended,
+                label: <span>{t('recommended')}</span>,
+              },
+              {
+                key: HomePageTabsKey.hot,
+                label: <span>{t('popular')}</span>,
+              },
+              {
+                key: HomePageTabsKey.daily,
+                label: <span>{t('dailySelections')}</span>,
+              },
+              {
+                key: HomePageTabsKey.favorite,
+                label: <span>{t('like')}</span>,
+              },
+              {
+                key: HomePageTabsKey.collection,
+                label: <span>{t('favorites')}</span>,
+              },
+            ]}
             onChange={(key) => setTabKey(key)}
           />
         </TabsContainer>
