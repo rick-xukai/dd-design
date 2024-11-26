@@ -35,6 +35,7 @@ const OptionContainer = styled.div`
 `;
 
 const OptionTag = styled.div`
+  padding: 4px 8px;
   border-radius: 8px;
   margin-left: auto;
   display: flex;

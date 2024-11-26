@@ -22,9 +22,9 @@ const SwiperComponent = ({
   <Swiper
     loop={loop}
     navigation={navigation}
-    autoplay={autoplay}
+    autoplay={false}
     modules={modules}
-    className="h-full"
+    className="h-full rounded-2xl"
   >
     {data.map((item) => (
       <SwiperSlide key={item.id}>

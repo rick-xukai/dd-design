@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'antd';
+import { useTranslations } from 'next-intl';
 
 import {
   CheckMoreButton,
@@ -22,6 +23,8 @@ const SliderComponent = ({
   type: string;
   moreFunction: () => void;
 }) => {
+  const t = useTranslations();
+
   return (
     <div>
       <Row>
@@ -39,7 +42,7 @@ const SliderComponent = ({
         <Col span={12}>
           <div className="flex justify-end">
             <CheckMoreButton onClick={moreFunction}>
-              <div>更多</div>
+              <div>{t('more')}</div>
               <SVGRender
                 componentName={SVGName.RightArrow}
                 classProps="text-themeHomeLabelColor"
