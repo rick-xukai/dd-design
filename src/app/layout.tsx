@@ -9,7 +9,6 @@ import AntdStyleProvider from '@/app/_components/antdStyleProvider';
 import '@/styles/globals.css';
 import StyledComponentsRegistry from '@/lib/styledRegistry';
 import { Images } from '@/theme/images';
-import { routing } from '@/i18n/routing';
 
 export const metadata: Metadata = {
   title: '点点设计 - 让创意点点涌现',
@@ -24,8 +23,6 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale?: string };
 }>) {
-  let messages;
-
   const { locale } = await params;
 
   // 添加内联脚本，在页面加载前设置主题，防止闪烁
@@ -36,14 +33,7 @@ export default async function RootLayout({
     })();
   `;
 
-  try {
-    if (!routing.locales.includes(locale as any)) {
-      // notFound();
-    }
-    messages = await await getMessages();
-  } catch (error) {
-    // notFound();
-  }
+  let messages = await getMessages();
 
   return (
     <html lang={locale}>

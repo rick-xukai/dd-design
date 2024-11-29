@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useWindowSize } from 'react-use';
 import { Image } from 'antd';
 import _ from 'lodash';
@@ -29,70 +29,81 @@ const MasonryGrid = ({
   const [isBottom, setIsBottom] = useState<boolean>(false);
   const [needSwiper, setNeedSwiper] = useState<boolean>(false);
 
+  const calculateLayout = (event?: any) => {
+    let minColumnWidth = width >= BreakPoint.contentMax ? 300 : 200;
+
+    if (event) {
+      const { innerWidth } = event.target;
+      if (innerWidth >= BreakPoint.contentMax) {
+        minColumnWidth = 300;
+      } else {
+        minColumnWidth = 200;
+      }
+    }
+
+    if (!containerRef.current) return;
+
+    // 获取容器宽度
+    const containerWidth = containerRef.current.offsetWidth;
+
+    // 动态计算列数
+    const columnCount = Math.floor(
+      containerWidth / (minColumnWidth + gridItemsGap)
+    );
+
+    // 动态调整列宽
+    const adjustedColumnWidth =
+      (containerWidth - (columnCount - 1) * gridItemsGap) / columnCount;
+
+    // 每列累积高度
+    const columnHeights = Array(columnCount).fill(0);
+
+    const newPositions: WaterfallItemsPositions[] = [];
+
+    sourceData.waterfall.forEach((item: any) => {
+      // 找到最短列
+      const shortestColumnIndex = columnHeights.indexOf(
+        Math.min(...columnHeights)
+      );
+      // 计算横坐标
+      const xCoordinate =
+        shortestColumnIndex * (adjustedColumnWidth + gridItemsGap);
+      // 计算纵坐标
+      const yCoordinate = columnHeights[shortestColumnIndex];
+
+      newPositions.push({
+        xCoordinate,
+        yCoordinate,
+        width: adjustedColumnWidth,
+        height: (item.height / item.width) * adjustedColumnWidth, // 保持比例
+      });
+
+      // 更新列高度
+      columnHeights[shortestColumnIndex] +=
+        (item.height / item.width) * adjustedColumnWidth + gridItemsGap;
+    });
+
+    // 找到最长的一列，为父容器设置高度
+    setMasonryContainerHeight(_.max(columnHeights));
+
+    setPositions(newPositions);
+  };
+
+  const handleScroll = () => {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    // 在完全距离底部之前150px触发事件
+    if (scrollTop + clientHeight >= scrollHeight - 150) {
+      setIsBottom(true);
+    } else {
+      setIsBottom(false);
+    }
+  };
+
   useEffect(() => {
     const { carousels } = sourceData;
     if (carousels && carousels.length) {
       setNeedSwiper(true);
     }
-    const calculateLayout = (event?: any) => {
-      let minColumnWidth = width >= BreakPoint.contentMax ? 300 : 200;
-
-      if (event) {
-        const { innerWidth } = event.target;
-        if (innerWidth >= BreakPoint.contentMax) {
-          minColumnWidth = 300;
-        } else {
-          minColumnWidth = 200;
-        }
-      }
-
-      if (!containerRef.current) return;
-
-      // 获取容器宽度
-      const containerWidth = containerRef.current.offsetWidth;
-
-      // 动态计算列数
-      const columnCount = Math.floor(
-        containerWidth / (minColumnWidth + gridItemsGap)
-      );
-
-      // 动态调整列宽
-      const adjustedColumnWidth =
-        (containerWidth - (columnCount - 1) * gridItemsGap) / columnCount;
-
-      // 每列累积高度
-      const columnHeights = Array(columnCount).fill(0);
-
-      const newPositions: WaterfallItemsPositions[] = [];
-
-      sourceData.waterfall.forEach((item: any) => {
-        // 找到最短列
-        const shortestColumnIndex = columnHeights.indexOf(
-          Math.min(...columnHeights)
-        );
-        // 计算横坐标
-        const xCoordinate =
-          shortestColumnIndex * (adjustedColumnWidth + gridItemsGap);
-        // 计算纵坐标
-        const yCoordinate = columnHeights[shortestColumnIndex];
-
-        newPositions.push({
-          xCoordinate,
-          yCoordinate,
-          width: adjustedColumnWidth,
-          height: (item.height / item.width) * adjustedColumnWidth, // 保持比例
-        });
-
-        // 更新列高度
-        columnHeights[shortestColumnIndex] +=
-          (item.height / item.width) * adjustedColumnWidth + gridItemsGap;
-      });
-
-      // 找到最长的一列，为父容器设置高度
-      setMasonryContainerHeight(_.max(columnHeights));
-
-      setPositions(newPositions);
-    };
 
     calculateLayout();
 
@@ -110,14 +121,9 @@ const MasonryGrid = ({
     }
   }, [positions]);
 
-  const handleScroll = () => {
-    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-    if (scrollTop + clientHeight >= scrollHeight - 150) {
-      setIsBottom(true);
-    } else {
-      setIsBottom(false);
-    }
-  };
+  const scrollListener = useCallback(() => {
+    handleScroll();
+  }, []);
 
   useEffect(() => {
     if (isBottom) {
@@ -126,8 +132,8 @@ const MasonryGrid = ({
   }, [isBottom]);
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', scrollListener);
+    return () => window.removeEventListener('scroll', scrollListener);
   }, []);
 
   return (
@@ -157,7 +163,7 @@ const MasonryGrid = ({
           />
         )}
       </div>
-      {positions.map((pos, index: number) => (
+      {positions.map((pos, index) => (
         <div
           key={index}
           className="absolute overflow-hidden rounded-2xl cursor-pointer"

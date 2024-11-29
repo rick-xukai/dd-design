@@ -22,7 +22,7 @@ const SwiperComponent = ({
   <Swiper
     loop={loop}
     navigation={navigation}
-    autoplay={false}
+    autoplay={autoplay}
     modules={modules}
     className="h-full rounded-2xl"
   >
