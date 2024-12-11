@@ -7,7 +7,7 @@ import { Navigation, EffectFade, Autoplay } from 'swiper/modules';
 import { WaterfallItemsPositions, BreakPoint } from '@/types/global';
 import SwiperComponent from '@/app/_components/swiperComponent';
 
-const MasonryGrid = ({
+const WaterfallLayout = ({
   sourceData,
   nextPage,
 }: {
@@ -16,8 +16,9 @@ const MasonryGrid = ({
 }) => {
   const gridItemsGap = 8;
 
-  const containerRef = useRef<any>(null);
   const { width } = useWindowSize();
+
+  const containerRef = useRef<any>(null);
 
   const [carouselPlaceholderSize, setCarouselPlaceholderSize] = useState<{
     width: number;
@@ -99,6 +100,10 @@ const MasonryGrid = ({
     }
   };
 
+  const scrollListener = useCallback(() => {
+    handleScroll();
+  }, []);
+
   useEffect(() => {
     const { carousels } = sourceData;
     if (carousels && carousels.length) {
@@ -120,10 +125,6 @@ const MasonryGrid = ({
       });
     }
   }, [positions]);
-
-  const scrollListener = useCallback(() => {
-    handleScroll();
-  }, []);
 
   useEffect(() => {
     if (isBottom) {
@@ -189,4 +190,4 @@ const MasonryGrid = ({
   );
 };
 
-export default MasonryGrid;
+export default WaterfallLayout;

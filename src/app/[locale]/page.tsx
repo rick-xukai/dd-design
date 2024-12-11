@@ -17,7 +17,7 @@ import {
   CarouselPlaceholder,
 } from '@/constants/constants';
 import SliderComponent from '@/app/_components/sliderComponent';
-import Waterfall from '@/app/_components/waterfall';
+import WaterfallLayout from '@/app/_components/waterfallLayout';
 import SVGRender from '@/app/_components/svgRender';
 import { MyAssetsTestData, TutorialTestData } from '@/constants/constants';
 import { SliderType, HomePageTabsKey, SVGName } from '@/types/global';
@@ -211,7 +211,7 @@ const Home = () => {
         {(tabKey === HomePageTabsKey.recommended ||
           tabKey === HomePageTabsKey.daily ||
           tabKey === HomePageTabsKey.hot) && (
-          <Waterfall
+          <WaterfallLayout
             sourceData={comboRecommendedData}
             nextPage={() => setPageNumber(pageNumber + 1)}
           />

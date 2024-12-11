@@ -41,17 +41,16 @@ export default async function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: setThemeScript }} />
       </head>
       <body>
-        {/* 多语言Provider */}
         <NextIntlClientProvider messages={messages}>
-          {/* 使用Registry包裹，防止样式闪烁  */}
+          {/* 防止样式闪烁  */}
           <AntdRegistry>
             <StyledComponentsRegistry>
               <div className="flex overflow-x-auto">
                 <div className="relative lg:w-[240px] w-[85px] min-w-[85px]">
                   <Navigation />
                 </div>
-                <div className="lg:w-[calc(100%-240px)] w-[calc(100%-85px)] content">
-                  {/* 添加Antd StyleProvider 组件，降低Css层级 */}
+                <div className="lg:w-[calc(100%-240px)] w-[calc(100%-85px)] layout-content">
+                  {/* 降低Antd css层级 */}
                   <AntdStyleProvider>
                     {children}
                     <FloatButton

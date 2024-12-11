@@ -58,7 +58,7 @@ svg {
   color: #fff;
 }
 
-.content {
+.layout-content {
   min-width: calc(1024px - 85px);
   max-width: 1600px;
   margin: auto;
