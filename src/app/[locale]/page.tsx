@@ -15,6 +15,8 @@ import {
   HomeFunctionOptionHigh,
   HomeFunctionOptionLow,
   CarouselPlaceholder,
+  DefaultPage,
+  DefaultPageSize,
 } from '@/constants/constants';
 import SliderComponent from '@/app/_components/sliderComponent';
 import WaterfallLayout from '@/app/_components/waterfallLayout';
@@ -27,28 +29,23 @@ import useHomePageStore from '@/store/homePage.store';
 const Home = () => {
   const t = useTranslations();
 
-  const { fetchData, recommendedData, waterfullListTotal } = useHomePageStore();
+  const { getWaterfallTestDataAction, recommendedData, waterfullListTotal } =
+    useHomePageStore();
 
   const [tabKey, setTabKey] = useState<string>(HomePageTabsKey.recommended);
-  const [pageNumber, setPageNumber] = useState<number>(1);
+  const [pageNumber, setPageNumber] = useState<number>(DefaultPage);
   const [comboRecommendedData, setComboRecommendedData] = useState<any>({
     waterfall: [],
     carousels: [],
   });
 
-  const getData = async () => {
+  const getData = () => {
     const payload = {
       pageNumber: pageNumber,
-      pageSize: 20,
+      pageSize: DefaultPageSize,
     };
 
-    fetchData('/api/recommendedList', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-    });
+    getWaterfallTestDataAction(payload);
   };
 
   useEffect(() => {
@@ -101,6 +98,7 @@ const Home = () => {
                 suffix={<Image src={Images.SearchIcon} alt="" />}
               />
             </div>
+            {/* 测试切换主题事件, 后期转移到正确的UI上 */}
             <ButtonStyled className="bg-homeTabActive" onClick={handleSetTheme}>
               {t('createDesign')}
             </ButtonStyled>

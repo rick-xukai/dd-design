@@ -25,7 +25,6 @@ export default async function RootLayout({
 }>) {
   const { locale } = await params;
 
-  // 添加内联脚本，在页面加载前设置主题，防止闪烁
   const setThemeScript = `
     (function() {
       const theme = localStorage.getItem('theme') || 'dark';

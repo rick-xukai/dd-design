@@ -66,6 +66,7 @@ const Navigation = () => {
                     <div className="text-themePrimary text-sm ml-4">
                       {t(option.name)}
                     </div>
+                    {/* UI Placeholder，后期换成真实数据 */}
                     {option.name === 'myAssets' && (
                       <OptionTag className="text-navigationTagText1 bg-navigationTag1 text-xs">
                         6

@@ -61,7 +61,7 @@ const WaterfallLayout = ({
 
     const newPositions: WaterfallItemsPositions[] = [];
 
-    sourceData.waterfall.forEach((item: any) => {
+    sourceData.waterfall.forEach((item: { height: number; width: number }) => {
       // 找到最短列
       const shortestColumnIndex = columnHeights.indexOf(
         Math.min(...columnHeights)

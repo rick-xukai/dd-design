@@ -1,7 +1,9 @@
 import { Images } from '@/theme/images';
 import { RouterKeys } from '@/constants/keys';
-import { HomePageTabsKey, SVGName } from '@/types/global';
+import { SVGName } from '@/types/global';
 
+export const DefaultPage = 1;
+export const DefaultPageSize = 20;
 export const NavigationOptions = [
   {
     label: '',
