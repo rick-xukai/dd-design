@@ -25,5 +25,7 @@
     "dailySelections": "Daily Selections",
     "like": "Like",
     "favorites": "Favorites",
-    "latest": "Latest"
+    "latest": "Latest",
+    "pageNotFound": "Oops! The page you're looking for doesn't exist",
+    "pageError": "Oops! There's an error on the page"
 }

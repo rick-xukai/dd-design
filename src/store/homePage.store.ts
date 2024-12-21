@@ -1,13 +1,17 @@
 import { create } from 'zustand';
 
 import { verificationApi } from '@/utils/func';
+import homePageServices from '@/services/homePage';
 
 interface HomePageStore {
   recommendedData: any;
   waterfullListTotal: number | null;
   loading: boolean;
   error: string | null;
-  fetchData: (url: string, options: any) => Promise<void>;
+  getWaterfallTestDataAction: (payload: {
+    pageNumber: number;
+    pageSize: number;
+  }) => Promise<void>;
 }
 
 const useHomePageStore = create<HomePageStore>((set) => ({
@@ -16,13 +20,12 @@ const useHomePageStore = create<HomePageStore>((set) => ({
   loading: false,
   error: null,
 
-  fetchData: async (url, options) => {
+  getWaterfallTestDataAction: async (payload) => {
     set({ loading: true, error: null });
     try {
-      const response = await fetch(url, options);
+      const response = await homePageServices.getWaterfallTestData(payload);
       if (verificationApi(response)) {
-        const responseData = await response.json();
-        const { data } = responseData;
+        const { data } = response;
         set({
           recommendedData: data,
           waterfullListTotal: data.total,

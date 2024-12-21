@@ -5,11 +5,10 @@ import { ThemeType } from '@/types/global';
  * 验证API是否成功
  */
 export const verificationApi = (response: any) =>
-  response.status === 200 && response.statusText === 'OK';
+  response.status === 200 && response.message === 'SUCCESS';
 
 /**
  * 切换主题函数
- * 注意：此函数直接操作DOM和localStorage，因此应在客户端环境中使用
  */
 export const handleSetTheme = () => {
   if (document && document.documentElement) {
