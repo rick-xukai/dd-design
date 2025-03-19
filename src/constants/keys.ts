@@ -2,6 +2,10 @@ export const LocalStorageKeys = {
   theme: 'theme',
 };
 
+export const CookieKeys = {
+  userToken: 'userToken',
+};
+
 export const RouterKeys = {
   home: '/',
   community: '/community',
@@ -18,4 +22,7 @@ export const RouterKeys = {
   downloads: '/downloads',
   tasks: '/tasks',
   messages: '/messages',
+  login: '/login',
 };
+
+export const AuthRouterKeys = [RouterKeys.community];

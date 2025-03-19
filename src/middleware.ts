@@ -2,10 +2,16 @@ import createMiddleware from 'next-intl/middleware';
 import { NextResponse, NextRequest } from 'next/server';
 
 import { routing } from './i18n/routing';
+import { CookieKeys, AuthRouterKeys, RouterKeys } from './constants/keys';
 
 export default async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const [, locale] = pathname.split('/');
+  const userToken = request.cookies.get(CookieKeys.userToken)?.value;
+  // const isAuthPage = request.nextUrl.pathname.startsWith(RouterKeys.login);
+  const isProtectedRoute = AuthRouterKeys.some((route) =>
+    pathname.startsWith(`/${locale}${route}`)
+  );
 
   // 跳过处理API请求和静态资源
   if (
@@ -26,6 +32,16 @@ export default async function middleware(request: NextRequest) {
 
     // 重定向
     return NextResponse.redirect(request.nextUrl);
+  }
+
+  // 如果用户没有登录，且当前页面需要登录，则跳转到登录页面
+  if (!userToken && isProtectedRoute) {
+    const loginUrl = new URL(`/${locale}${RouterKeys.login}`, request.url);
+    const formattedPathname = pathname.replace(`/${locale}`, '');
+
+    loginUrl.searchParams.set('returnUrl', formattedPathname);
+
+    return NextResponse.redirect(loginUrl);
   }
 
   const handleI18nRouting = createMiddleware(routing);

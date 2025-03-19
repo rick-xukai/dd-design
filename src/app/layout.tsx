@@ -45,9 +45,7 @@ export default async function RootLayout({
           <AntdRegistry>
             <StyledComponentsRegistry>
               <div className="flex overflow-x-auto">
-                <div className="relative lg:w-[240px] w-[85px] min-w-[85px]">
-                  <Navigation />
-                </div>
+                <Navigation />
                 <div className="lg:w-[calc(100%-240px)] w-[calc(100%-85px)] layout-content">
                   {/* 降低Antd css层级 */}
                   <AntdStyleProvider>
