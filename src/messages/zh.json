@@ -36,5 +36,8 @@
     "inputPassword": "请输入密码",
     "invalidEmail": "请输入有效的邮箱",
     "invalidPassword": "密码至少需要 6 个字符",
-    "loginFailed": "登录失败"
+    "loginFailed": "登录失败",
+    "currentUser": "当前用户",
+    "changeUser": "切换用户",
+    "logout": "退出"
 }

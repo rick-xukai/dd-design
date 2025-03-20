@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Community = () => {
+const Events = () => {
   return <div>Coming soon...</div>;
 };
 
-export default Community;
+export default Events;
