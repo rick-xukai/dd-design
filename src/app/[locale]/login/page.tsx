@@ -26,7 +26,7 @@ import { LoginContainer } from '@/styles/login.style';
 const LoginPage = () => {
   const t = useTranslations();
   const { toast } = useToast();
-  const cookie = useCookie([CookieKeys.userToken]);
+  const cookie = useCookie([CookieKeys.userInfo]);
   const searchParams = useSearchParams();
   const router = useRouter();
   const { userLoginAction, error } = useUserStore();
@@ -47,8 +47,9 @@ const LoginPage = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     const response = await userLoginAction(values);
     if (response !== undefined && response !== null) {
-      const { token } = response;
-      cookie.setCookie(CookieKeys.userToken, token);
+      cookie.setCookie(CookieKeys.userInfo, JSON.stringify(response), {
+        path: '/',
+      });
       router.push(searchParams.get('returnUrl') || '/');
     }
   };

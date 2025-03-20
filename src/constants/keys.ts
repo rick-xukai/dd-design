@@ -3,7 +3,7 @@ export const LocalStorageKeys = {
 };
 
 export const CookieKeys = {
-  userToken: 'userToken',
+  userInfo: 'USER_INFO',
 };
 
 export const RouterKeys = {

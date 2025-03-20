@@ -16,6 +16,7 @@ export const POST = async (req: NextRequest) => {
             NextResponse.json({
               data: {
                 token: '1234567890',
+                email: 'rick.xukai@gmail.com',
               },
               message: 'SUCCESS',
               status: 200,

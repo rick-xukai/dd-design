@@ -45,16 +45,16 @@ export default async function RootLayout({
           <AntdRegistry>
             <StyledComponentsRegistry>
               <div className="flex overflow-x-auto">
-                <Navigation />
-                <div className="lg:w-[calc(100%-240px)] w-[calc(100%-85px)] layout-content">
-                  {/* 降低Antd css层级 */}
-                  <AntdStyleProvider>
+                {/* 降低Antd css层级 */}
+                <AntdStyleProvider>
+                  <Navigation />
+                  <div className="lg:w-[calc(100%-240px)] w-[calc(100%-85px)] layout-content">
                     {children}
                     <FloatButton
                       icon={<img src={Images.FloatButtonIcon.src} alt="" />}
                     />
-                  </AntdStyleProvider>
-                </div>
+                  </div>
+                </AntdStyleProvider>
               </div>
             </StyledComponentsRegistry>
           </AntdRegistry>

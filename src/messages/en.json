@@ -36,5 +36,8 @@
     "inputPassword": "Please input your password",
     "invalidEmail": "Please input invalid email",
     "invalidPassword": "Password needs to be at least 6 characters",
-    "loginFailed": "Login failed"
+    "loginFailed": "Login failed",
+    "currentUser": "Current User",
+    "changeUser": "Change User",
+    "logout": "Logout"
 }
