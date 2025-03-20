@@ -37,9 +37,8 @@ export default async function middleware(request: NextRequest) {
   // 如果用户没有登录，且当前页面需要登录，则跳转到登录页面
   if (!userToken && isProtectedRoute) {
     const loginUrl = new URL(`/${locale}${RouterKeys.login}`, request.url);
-    const formattedPathname = pathname.replace(`/${locale}`, '');
 
-    loginUrl.searchParams.set('returnUrl', formattedPathname);
+    loginUrl.searchParams.set('returnUrl', pathname);
 
     return NextResponse.redirect(loginUrl);
   }

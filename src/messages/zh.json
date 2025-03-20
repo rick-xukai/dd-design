@@ -27,5 +27,14 @@
     "favorites": "收藏",
     "latest": "最新",
     "pageNotFound": "糟糕! 你要找的页面不存在",
-    "pageError": "糟糕! 页面出错了"
+    "pageError": "糟糕! 页面出错了",
+    "lginAccount": "登录您的账户",
+    "email": "邮箱",
+    "password": "密码",
+    "login": "登录",
+    "inputEmail": "请输入邮箱",
+    "inputPassword": "请输入密码",
+    "invalidEmail": "请输入有效的邮箱",
+    "invalidPassword": "密码至少需要 6 个字符",
+    "loginFailed": "登录失败"
 }
