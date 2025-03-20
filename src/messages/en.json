@@ -27,5 +27,14 @@
     "favorites": "Favorites",
     "latest": "Latest",
     "pageNotFound": "Oops! The page you're looking for doesn't exist",
-    "pageError": "Oops! There's an error on the page"
+    "pageError": "Oops! There's an error on the page",
+    "lginAccount": "Login to your account",
+    "email": "Email",
+    "password": "Password",
+    "login": "Login",
+    "inputEmail": "Please input your email",
+    "inputPassword": "Please input your password",
+    "invalidEmail": "Please input invalid email",
+    "invalidPassword": "Password needs to be at least 6 characters",
+    "loginFailed": "Login failed"
 }

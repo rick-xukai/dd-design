@@ -10,6 +10,7 @@ import TestImages6 from '@/assets/testImages/testImages6.png';
 import TestImages7 from '@/assets/testImages/testImages7.png';
 import TestImages8 from '@/assets/testImages/testImages8.png';
 import TestImages9 from '@/assets/testImages/testImages9.jpg';
+import AnimatedBackground from '@/assets/testImages/animated-background.gif';
 
 export const Images = {
   SearchIcon,
@@ -23,4 +24,5 @@ export const Images = {
   TestImages7,
   TestImages8,
   TestImages9,
+  AnimatedBackground,
 };
